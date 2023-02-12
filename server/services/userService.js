@@ -15,6 +15,10 @@ class Userservice {
     return await this.model.find({});
   }
 
+  async findAllUsersForPosts() {
+    return await this.model.find({}, { lang: 1, _id: 1 });
+  }
+
   async findUserById(id) {
     const user = await this.model.findById(id);
     return user ? user : null;

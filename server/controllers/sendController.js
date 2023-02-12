@@ -10,4 +10,14 @@ const send = async (req, res, next) => {
   }
 };
 
-module.exports = { send };
+const massSend = async (req, res, next) => {
+  try {
+    const { text } = req.body;
+    await sendService.sendMessageForAllUsers(text);
+    res.end();
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { send, massSend };

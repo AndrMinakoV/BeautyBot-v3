@@ -17,4 +17,6 @@ adminRouter.get('/all', AdminController.getAllAdmins);
 
 adminRouter.post('/send', SendController.send);
 
+adminRouter.post('/massSend', SendController.massSend);
+
 module.exports = adminRouter;
