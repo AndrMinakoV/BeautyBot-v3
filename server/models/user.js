@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
   last_name: String,
   created: Date,
   contact: String,
+  lang: String,
   balance: { type: Number, default: 0 },
   isBanned: { type: Boolean, default: false },
 });

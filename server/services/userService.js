@@ -4,17 +4,17 @@ class Userservice {
   constructor() {
     this.model = UserModel;
   }
-  async addUser({ id, contact, name }) {
+  async addUser({ id, contact, name, lang }) {
     const isUserExist = await this.findUserById(id);
     if (isUserExist) return;
-    const newUser = new this.model({ _id: id, contact, name });
+    const newUser = new this.model({ _id: id, contact, name, lang });
     await newUser.save();
   }
 
-  async findAll(){
-    return await this.model.find({})
+  async findAll() {
+    return await this.model.find({});
   }
-  
+
   async findUserById(id) {
     const user = await this.model.findById(id);
     return user ? user : null;
